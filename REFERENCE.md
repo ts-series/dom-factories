@@ -55,35 +55,41 @@ Since **DOM Factories** is just one module file, whose interface is so extremely
 
 ### 1.3 Use of a Public Content Delivery Network (CDN)
 
-A much cleaner and even simpler approach is to use jsDelivr, for which **DOM Factories** is specifically versioned:
+A much cleaner and even simpler approach is to use a CDN:
 
-```html
-<script src="https://cdn.jsdelivr.net/gh/ts-series/dom-factories@v2.0.0/dom-factories.js"></script>
-```
+| CDN | URL |
+| --- | --- |
+| esm.sh | `https://esm.sh/@ts-series/dom-factories` |
+| jsDelivr | `https://cdn.jsdelivr.net/npm/@ts-series/dom-factories/+esm` |
+| unpkg | `https://unpkg.com/@ts-series/dom-factories?module` |
 
-or alternatively through the official npm repository:
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/@ts-series/dom-factories@2.0.0"></script>
-```
-
-The code can also be imported directly as an ES module:
+Since the package ships as an ES module, any of these URLs must be loaded with `type="module"`, not as a classic script:
 
 ```html
 <script type="module">
-  import { a, button, p } from 'https://cdn.jsdelivr.net/npm/@ts-series/dom-factories@2.0';
+  import { a, button, p } from 'https://cdn.jsdelivr.net/npm/@ts-series/dom-factories/+esm';
+</script>
+```
+
+A specific version can be pinned by appending it after the package name:
+
+```html
+<script type="module">
+  import { a, button, p } from 'https://cdn.jsdelivr.net/npm/@ts-series/dom-factories@2.0.0/+esm';
 </script>
 ```
 
 If the latest minor version is to be used at all times, the patch number can simply be omitted:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@ts-series/dom-factories@2.0"></script>
+<script type="module">
+  import { a, button, p } from 'https://cdn.jsdelivr.net/npm/@ts-series/dom-factories@2.0/+esm';
+</script>
 ```
 
 ### 1.4 Obtaining a CDN Version Locally
 
-As incredibly simple as jsDelivr is, it has two major drawbacks: plain VS Code IntelliSense (via `tsserver`) doesn't work for modules imported from a CDN at all, and even Deno's language server, which does resolve HTTPS imports, only gets full type information when the actual TypeScript source is loaded, not a bundled or minified build. Furthermore, the CDN servers can be down, although this is very rare. Other concerns may exist as well. In any case, this shouldn't be a reason not to benefit from jsDelivr:
+As incredibly simple as content delivery networks are, they have two major drawbacks: plain VS Code IntelliSense (via `tsserver`) doesn't work for modules imported from a CDN at all, and even Deno's language server, which does resolve HTTPS imports, only gets full type information when the actual TypeScript source is loaded, not a bundled or minified build. Furthermore, the CDN servers can be down, although this is very rare. Other concerns may exist as well. In any case, this shouldn't be a reason not to benefit from jsDelivr:
 
 ```bash
 mkdir -p ./client/external

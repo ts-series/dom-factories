@@ -1,6 +1,6 @@
 # DOM Factories
 
-DOM Factories is a minimal JavaScript/TypeScript library that provides functions to significantly reduce boilerplate code for dynamically creating and manipulating HTML, SVG, and MathML on the client side.
+**DOM Factories** is a minimal JavaScript/TypeScript library that provides functions to significantly reduce boilerplate code for dynamically creating and manipulating HTML, SVG, and MathML on the client side.
 
 Unlike React, **DOM Factories** does not require complex installation and is significantly more efficient, as it adds nothing on top of the DOM API but nestable factory functions that wrap the repetitive parts for creating elements:
 
@@ -179,7 +179,7 @@ React nonetheless offers more functionality. However, **DOM Factories** clearly 
 
 Adding methods like `set` and `on` directly to the prototype is simply the most efficient and simplest solution, fitting JavaScript's dynamic nature. Furthermore, the DOM API has remained remarkably stable over the years, and the names chosen for the added methods were kept deliberately short, which makes collisions with future DOM API extensions extremely unlikely.
 
-The intention behind this small supplementary library is not to hide the powerful DOM API, but rather to extend it cleverly, without unnecessary layers, so that web applications stay maximally efficient. DOM Factories holds the view that modern JavaScript already offers everything needed to build lean, contemporary web applications.
+The intention behind this small supplementary library is not to hide the powerful DOM API, but rather to extend it cleverly, without unnecessary layers, so that web applications stay maximally efficient. **DOM Factories** holds the view that modern JavaScript already offers everything needed to build lean, contemporary web applications.
 
 ## Installation and Full API
 
