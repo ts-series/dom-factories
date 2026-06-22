@@ -1,0 +1,15 @@
+# HIDDEN AND AUTOMATICALLY GENERATED SOURCE FILES
+.*.ts
+*.d.ts
+*.js
+dist/
+
+# ENVIRONMENT
+.env
+.env.*
+
+# EDITORS
+.vscode/
+
+# TOOLS
+.deno/

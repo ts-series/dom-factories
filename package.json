@@ -1,0 +1,46 @@
+{
+	"name": "@ts-series/dom-factories",
+	"version": "2.0.0",
+	"author": "Enrico Rippin <e@rippin.org>",
+	"description": "Lightweight factory functions for creating and composing HTML elements in the browser.",
+	"keywords": [
+		"client",
+		"dsl",
+		"dom",
+		"html",
+		"factory",
+		"builder",
+		"jsx",
+		"react"
+	],
+	"engines": {
+		"node": ">=18"
+	},
+	"type": "module",
+	"sideEffects": true,
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"build": "rm -rf dist && tsc",
+		"prepublishOnly": "npm run build"
+	},
+	"devDependencies": {
+		"typescript": "^6.0.0"
+	},
+	"exports": {
+		".": {
+			"types": "./dist/dom-factories.d.ts",
+			"default": "./dist/dom-factories.js"
+		}
+	},
+	"files": [
+		"dist",
+		"README.md"
+	],
+	"license": "Unlicense",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ts-series/dom-factories.git"
+	}
+}
