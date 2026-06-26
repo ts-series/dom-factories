@@ -1,8 +1,6 @@
 # DOM Factories
 
-**DOM Factories** is a minimal JavaScript/TypeScript library that provides functions to significantly reduce boilerplate code for dynamically creating and manipulating HTML, SVG, and MathML on the client side.
-
-Unlike React, **DOM Factories** does not require complex installation and is significantly more efficient, as it adds nothing on top of the DOM API but nestable factory functions that wrap the repetitive parts for creating elements:
+**DOM Factories** is a minimal JavaScript/TypeScript library that provides functions to significantly reduce boilerplate code caused by DOM API calls for dynamically creating and manipulating HTML, SVG, and MathML on the client side, while ensuring high efficiency as it adds nothing on top of the DOM API except nestable factory functions that wrap the repetitive parts.
 
 ```javascript
 const card = div(
@@ -11,14 +9,14 @@ const card = div(
 );
 ```
 
-There is also an additional method `set` on every element that sets attributes and returns the element itself, so it can be passed on immediately. A second method, `on`, binds event listeners the same way while remaining chainable:
+There is also an additional method `set` on every element that sets attributes and returns the element itself so it can be passed on immediately. A second method, `on`, binds event listeners in the same way while remaining chainable.
 
 ```javascript
 const notification = div(
     span("Your changes have been saved.")
-).set({ id: "notification", class: "notification", role: "status" });
+).set({ id: "notification", class: "notification", role: "status" }).on.click(() => notification.remove());
 
-notification.on.click(() => notification.remove());
+notification;
 
 document.body.appendChild(notification);
 ```
@@ -88,7 +86,7 @@ header(
 
 Basically, the functions provided do nothing other than create the HTML element they are named after and, if not empty, accept any number of other elements to append as children, or objects in general, which get automatically converted to text using `toString()`. This gives the impression of writing HTML directly in JavaScript. That's the whole magic behind it.
 
-To see how much **DOM Factories** can reduce the amount of boilerplate code as an alternative to using React, here is the raw version of the initial example:
+To see how much **DOM Factories** can reduce the amount of boilerplate code, here is the raw version of the initial example:
 
 ```javascript
 // Create the header with a title
@@ -172,8 +170,6 @@ document.body.appendChild(footerElement);
 ```
 
 Impressive, isn't it? And all this with just 500 lines of boring library code and without any syntax extensions like JSX, which would require a separate build step! This is possible because **DOM Factories** does not try to abstract away the DOM API, but just adds a few convenience functions that simply summarize the recurring, same steps. Yes, it can be that simple!
-
-React nonetheless offers more functionality. However, **DOM Factories** clearly shows that React is absolutely over-engineered, slow dope from Facebook/Meta, which requires a lot of learning time with new models like components to grasp, instead of simply writing vanilla JavaScript as if it were HTML.
 
 ### Why Extend Element Directly?
 
